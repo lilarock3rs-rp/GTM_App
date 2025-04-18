@@ -7,13 +7,13 @@
       "maxDuration": 60
     }
   },
+  "buildCommand": "mkdir -p ./dist && cp -r ./public/* ./dist/",
+  "outputDirectory": "dist",
   "routes": [
     { "src": "/api/test", "dest": "/api/simplified.js" },
     { "src": "/api", "dest": "/api/index.js" },
     { "src": "/api/hubspot", "dest": "/api/hubspot-test.js" },
-    { "src": "/api/webhook", "dest": "/api/webhook.js" },
-    
-    { "handle": "filesystem" }
+    { "src": "/api/webhook", "dest": "/api/webhook.js" }
   ],
   "env": {
     "NODE_ENV": "production",

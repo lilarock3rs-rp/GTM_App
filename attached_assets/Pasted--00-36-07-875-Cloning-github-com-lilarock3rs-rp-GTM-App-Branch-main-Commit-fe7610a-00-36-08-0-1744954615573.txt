@@ -1,0 +1,45 @@
+[00:36:07.875] Cloning github.com/lilarock3rs-rp/GTM_App (Branch: main, Commit: fe7610a)
+[00:36:08.073] Previous build caches not available
+[00:36:08.190] Cloning completed: 315.000ms
+[00:36:08.476] Running build in Washington, D.C., USA (East) – iad1
+[00:36:08.635] Running "vercel build"
+[00:36:09.102] Vercel CLI 41.6.0
+[00:36:09.919] Running "install" command: `npm install`...
+[00:36:14.829] npm warn deprecated @esbuild-kit/esm-loader@2.6.5: Merged into tsx: https://tsx.is
+[00:36:14.830] npm warn deprecated @esbuild-kit/core-utils@3.3.2: Merged into tsx: https://tsx.is
+[00:36:20.847] 
+[00:36:20.848] added 492 packages, and audited 493 packages in 10s
+[00:36:20.848] 
+[00:36:20.848] 62 packages are looking for funding
+[00:36:20.849]   run `npm fund` for details
+[00:36:20.885] 
+[00:36:20.885] 8 moderate severity vulnerabilities
+[00:36:20.886] 
+[00:36:20.886] To address issues that do not require attention, run:
+[00:36:20.886]   npm audit fix
+[00:36:20.886] 
+[00:36:20.886] To address all issues (including breaking changes), run:
+[00:36:20.887]   npm audit fix --force
+[00:36:20.887] 
+[00:36:20.887] Run `npm audit` for details.
+[00:36:21.066] Running "npm run build"
+[00:36:21.247] 
+[00:36:21.247] > rest-express@1.0.0 build
+[00:36:21.247] > vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist
+[00:36:21.248] 
+[00:36:21.644] [36mvite v5.4.14 [32mbuilding for production...[36m[39m
+[00:36:21.700] transforming...
+[00:36:22.045] Browserslist: browsers data (caniuse-lite) is 6 months old. Please run:
+[00:36:22.045]   npx update-browserslist-db@latest
+[00:36:22.046]   Why you should do it regularly: https://github.com/browserslist/update-db#readme
+[00:36:22.482] [32m✓[39m 25 modules transformed.
+[00:36:22.483] [31mx[39m Build failed in 811ms
+[00:36:22.483] [31merror during build:
+[00:36:22.483] [31mCould not resolve "./pages/not-found.tsx" from "client/src/App.tsx"[31m
+[00:36:22.483] file: [36m/vercel/path0/client/src/App.tsx[31m
+[00:36:22.483]     at getRollupError (file:///vercel/path0/node_modules/rollup/dist/es/shared/parseAst.js:396:41)
+[00:36:22.483]     at error (file:///vercel/path0/node_modules/rollup/dist/es/shared/parseAst.js:392:42)
+[00:36:22.483]     at ModuleLoader.handleInvalidResolvedId (file:///vercel/path0/node_modules/rollup/dist/es/shared/node-entry.js:20065:24)
+[00:36:22.484]     at file:///vercel/path0/node_modules/rollup/dist/es/shared/node-entry.js:20025:26[39m
+[00:36:22.502] Error: Command "npm run build" exited with 1
+[00:36:22.723] 
