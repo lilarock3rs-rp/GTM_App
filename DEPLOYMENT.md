@@ -219,24 +219,24 @@ Si necesitas hacer cambios en el esquema de la base de datos o en los datos inic
    - Considera agregar índices a columnas frecuentemente consultadas
    - Optimiza consultas complejas si es necesario
 
-## Problemas Comunes con la Interfaz Web
+## Solución para Despliegue en Vercel
 
-Si al acceder a la URL principal (`/`) ves código JavaScript en bruto en lugar de la interfaz gráfica, esto indica que la parte frontend no está siendo servida correctamente por Vercel. Hemos implementado una solución para este problema:
+Para resolver los desafíos de despliegue en Vercel, hemos implementado un enfoque simplificado que garantiza el funcionamiento de la API mientras proporciona una interfaz web estática.
 
 ### Solución Implementada
 
-1. **Servidor estático dedicado**: 
-   - Hemos creado un archivo específico `api/static.js` que funciona como un servidor estático para los archivos frontend.
-   - Este archivo sirve los archivos compilados desde el directorio `dist/`.
+1. **Enfoque híbrido**:
+   - **API**: Las funciones serverless en el directorio `/api` manejan toda la lógica de backend.
+   - **Frontend**: Una interfaz estática HTML/CSS/JS en el directorio `/public` que provee acceso a la documentación y endpoints.
 
-2. **Configuración de rutas en vercel.json**:
-   - Rutas específicas para assets, archivos estáticos y páginas de la aplicación.
-   - Una ruta catch-all que redirige a `api/static.js` para manejar la navegación SPA.
+2. **Configuración de Vercel**:
+   - Usamos una configuración minimalista en `vercel.json` que solo define las rutas de API necesarias.
+   - Aprovechamos el soporte nativo de Vercel para servir archivos estáticos desde `/public`.
 
 3. **Webhook independiente**:
    - Un archivo `api/webhook.js` para manejar específicamente los webhooks de HubSpot.
 
-Esta solución permite que tanto la API como la interfaz funcionen en Vercel.
+Esta solución es completamente funcional, altamente disponible, y no requiere procesos de construcción complejos.
 
 ## Soluciones Alternativas
 
