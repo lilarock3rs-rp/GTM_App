@@ -1,0 +1,91 @@
+Objetivo de la Aplicación:
+
+Crear una aplicación web desplegable en Vercel usando Node.js que escuche los cambios en la propiedad Lifecycle Stage de un contacto en HubSpot mediante un webhook. Cuando se detecta un cambio, la app recupera el valor de la propiedad Latest Traffic Source y lo compara con un conjunto de condiciones almacenadas en una base de datos (incluyendo combinaciones con Original Traffic Source Drill-Down 2). Si se encuentra una coincidencia, la app actualizará las siguientes propiedades del contacto en HubSpot:
+
+GTM Summary
+
+GTM Motion
+
+GTM Medium
+
+GTM Web Source
+
+GTM Term
+
+Si alguna de estas propiedades no existe en el portal de HubSpot, la aplicación deberá crearla automáticamente antes de intentar establecer su valor.
+
+📌 Funcionalidades Clave:
+Webhook Listener
+
+Escucha cambios en la propiedad Lifecycle Stage de un contacto.
+
+Puede recibir datos desde HubSpot vía suscripciones webhook.
+
+Evaluador de Reglas de Atribución
+
+Valida el valor de Latest Traffic Source + Original Traffic Source Drill-Down 2 contra una base de datos de mapeos predefinidos.
+
+Si hay coincidencia, genera los valores correspondientes para:
+
+GTM Summary
+
+GTM Motion
+
+GTM Medium
+
+GTM Web Source
+
+GTM Term
+
+Actualización en HubSpot
+
+Llama a la API de HubSpot para actualizar las propiedades del contacto.
+
+Si las propiedades no existen, las crea automáticamente usando el endpoint de propiedades.
+
+Configuración de API Key / Token
+
+Permite definir o cambiar el API token o Private App Token para conectar con diferentes cuentas de HubSpot.
+
+Base de Datos de Mapeo
+
+Tabla con estructura:
+
+json
+Copy
+Edit
+{
+  "latest_traffic_source": "Organic Search",
+  "drill_down_2": "Google",
+  "gtm_summary": "Inbound | Search | Google",
+  "gtm_motion": "Inbound",
+  "gtm_medium": "Search",
+  "gtm_web_source": "Google",
+  "gtm_term": "Source Drill-Down 2"
+}
+Posibilidad de edición futura (opcional) desde un archivo o UI.
+
+🛠️ Stack Tecnológico
+Frontend (si es necesario): Next.js + TailwindCSS (opcional, si quieres ver mapeos)
+
+Backend: Node.js + Express
+
+Base de Datos: SQLite (para versión inicial en Replit) o PostgreSQL/Supabase para producción
+
+API de HubSpot: REST (Private App Token)
+
+Despliegue: Vercel
+
+🔐 Seguridad
+Uso de .env para almacenar el token de HubSpot
+
+Protección por token en la ruta del webhook (opcional)
+
+💡 Consideraciones Adicionales
+Sobrescribir propiedades si ya existen (comportamiento confirmado)
+
+GTM Term también se llena
+
+Puedes agregar reglas adicionales al archivo JSON o tabla en la base de datos
+
+Posibilidad de extender a múltiples portales si se parametriza el dominio/ID de cuenta

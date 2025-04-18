@@ -1,0 +1,47 @@
+{
+  "version": 2,
+  "functions": {
+    "api/*.js": {
+      "memory": 1024,
+      "maxDuration": 60
+    }
+  },
+  "routes": [
+    { "src": "/test", "dest": "/api/simplified.js" },
+    { "src": "/api/test", "dest": "/api/simplified.js" },
+    { "src": "/api", "dest": "/api/index.js" },
+    { "src": "/api/hubspot", "dest": "/api/hubspot-test.js" },
+    { "src": "/api/webhook", "dest": "/api/webhook.js" },
+    
+    { "src": "/assets/(.*)", "dest": "/assets/$1" },
+    { "src": "/vite-hmr/(.*)", "dest": "/api/simplified.js" },
+    { "src": "/(.*\\.(js|css|png|jpg|svg|ico))", "dest": "/$1" },
+    
+    { "handle": "filesystem" },
+    
+    { "src": "/dashboard", "dest": "/api/static.js" },
+    { "src": "/attribution-rules", "dest": "/api/static.js" },
+    { "src": "/webhook-logs", "dest": "/api/static.js" },
+    { "src": "/settings", "dest": "/api/static.js" },
+    { "src": "/fallback", "dest": "/api/fallback.js" },
+    
+    { "src": "/(.*)", "dest": "/api/static.js" }
+  ],
+  "env": {
+    "NODE_ENV": "production",
+    "VERCEL": "1"
+  },
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/node",
+      "config": {
+        "buildCommand": "chmod +x build.sh && ./build.sh"
+      }
+    },
+    {
+      "src": "api/*.js",
+      "use": "@vercel/node"
+    }
+  ]
+}
