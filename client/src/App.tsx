@@ -1,12 +1,12 @@
 import { Switch, Route } from "wouter";
-import { Toaster } from "@/components/ui/toaster";
-import NotFound from "@/pages/not-found";
-import Dashboard from "@/pages/Dashboard";
-import AttributionRules from "@/pages/AttributionRules";
-import WebhookLogs from "@/pages/WebhookLogs";
-import Settings from "@/pages/Settings";
-import Sidebar from "@/components/layout/Sidebar";
-import Header from "@/components/layout/Header";
+import { Toaster } from "./components/ui/toaster";
+import NotFound from "./pages/not-found.tsx";
+import Dashboard from "./pages/Dashboard.tsx";
+import AttributionRules from "./pages/AttributionRules.tsx";
+import WebhookLogs from "./pages/WebhookLogs.tsx";
+import Settings from "./pages/Settings.tsx";
+import Sidebar from "./components/layout/Sidebar";
+import Header from "./components/layout/Header";
 import { useState } from "react";
 
 function App() {
